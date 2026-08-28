@@ -4,8 +4,8 @@
     .fingerprint = 0xc4cfa8c610114f28,
     .dependencies = .{
         .raylib = .{
-            .url = "git+https://github.com/nat3Github/zig-lib-raylib-dev-fork#f0340e3fb4887bfd2d664d568bf18369865eb378",
-            .hash = "raylib-6.0.0-whq8uJyB7ADoZraP2bp15lQ4QM5C0ACdaa7p8SpWtIOI",
+            .url = "git+https://github.com/nat3Github/zig-lib-raylib-dev-fork#02880226b9c47e35704b914cdc231ca3b714b0de",
+            .hash = "raylib-6.0.0-whq8uBmC7AA3lM_OwQ6yWE1Oppiyoee2IyGzgbEBkr3L",
         },
         .raygui = .{
             .url = "git+https://github.com/nat3Github/zig-lib-raygui-dev-fork#62a3b50b71c271ab1afbf201d168c08dccc5c40c",
