@@ -550,11 +550,18 @@ pub fn build(b: *std.Build) !void {
 
     const generate_binding_step = b.step("binding", "Generate the binding");
 
+    // These run unconditionally at configure time (not deferred to when the "binding"
+    // step actually executes), so a bare .get(...).? here would crash every build that
+    // reaches this backend, not just `zig build binding` invocations. raygui.h in
+    // particular is only in the map when raylib's own lazyDependency("raygui", ...) has
+    // resolved on this pass -- skip it rather than crash if it hasn't yet.
     const usf_dependency = b.addUpdateSourceFiles();
     usf_dependency.addCopyFileToSource(raylib_headers.get("raylib.h").?, "lib/raylib.h");
     usf_dependency.addCopyFileToSource(raylib_headers.get("raymath.h").?, "lib/raymath.h");
     usf_dependency.addCopyFileToSource(raylib_headers.get("rlgl.h").?, "lib/rlgl.h");
-    usf_dependency.addCopyFileToSource(raylib_headers.get("raygui.h").?, "lib/raygui.h");
+    if (raylib_headers.get("raygui.h")) |raygui_h| {
+        usf_dependency.addCopyFileToSource(raygui_h, "lib/raygui.h");
+    }
 
     const bind_step = b.addSystemCommand(&.{"python3"});
     bind_step.addFileArg(b.path("lib/generate_functions.py"));
