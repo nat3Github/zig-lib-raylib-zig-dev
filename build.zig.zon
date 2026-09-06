@@ -4,20 +4,20 @@
     .fingerprint = 0xc4cfa8c610114f28,
     .dependencies = .{
         .raylib = .{
-            .url = "git+https://github.com/nat3Github/zig-lib-raylib-dev-fork#02880226b9c47e35704b914cdc231ca3b714b0de",
-            .hash = "raylib-6.0.0-whq8uBmC7AA3lM_OwQ6yWE1Oppiyoee2IyGzgbEBkr3L",
+            .url = "git+https://github.com/nat3Github/zig-lib-raylib-dev?ref=lean-on-upstream#b3e0b32f95225a7309b18b0d8c37ae93a74aaf9b",
+            .hash = "raylib-6.0.0-whq8uHh67AA24bxniQFN1_c6vp8zbqiBSbMHg-2csfEa",
         },
         .raygui = .{
-            .url = "git+https://github.com/nat3Github/zig-lib-raygui-dev-fork#62a3b50b71c271ab1afbf201d168c08dccc5c40c",
+            .url = "git+https://github.com/nat3Github/zig-lib-raygui-dev#62a3b50b71c271ab1afbf201d168c08dccc5c40c",
             .hash = "N-V-__8AAIppBAC5cWi-1ZeNAWCL-wnmk1C5Trtdhu1w3NAs",
         },
         .emsdk = .{
-            .url = "git+https://github.com/nat3Github/zig-lib-emsdk-dev-fork#6c3c9883a43419fbfc4be4d099d377c4dc4f95ac",
+            .url = "git+https://github.com/nat3Github/zig-lib-emsdk-dev#6c3c9883a43419fbfc4be4d099d377c4dc4f95ac",
             .hash = "emsdk-4.0.9-AsAhn3VZAgD1hm4JoUhnXFy52dLjEFXBmYvo2ObTosCR",
             .lazy = true,
         },
         .zemscripten = .{
-            .url = "git+https://github.com/nat3Github/zig-lib-zemscripten-dev-fork#3fa4b778852226c7346bdcc3c1486e875a9a6d02",
+            .url = "git+https://github.com/nat3Github/zig-lib-zemscripten-dev#3fa4b778852226c7346bdcc3c1486e875a9a6d02",
             .hash = "zemscripten-0.2.0-dev-sRlDqApRAACspTbAZnuNKWIzfWzSYgYkb2nWAXZ-tqqt",
             .lazy = true,
         },
