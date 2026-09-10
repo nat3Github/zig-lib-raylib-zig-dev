@@ -46,10 +46,11 @@ pub fn build(b: *std.Build) !void {
     const optimize = b.standardOptimizeOption(.{});
 
     const options = Options.getOptions(b);
-    // Forwarded to raylib for cross-compiling to Linux from a non-Linux host -- see
-    // raylib's build.zig (linkLinux) for why these aren't --sysroot.
-    const system_include_path = b.option(std.Build.LazyPath, "system_include_path", "Linux sysroot include path (for cross-compiling to Linux)");
-    const library_path = b.option(std.Build.LazyPath, "library_path", "Linux sysroot library path (for cross-compiling to Linux)");
+    // Forwarded to raylib for cross-compiling -- see raylib's build.zig (crossPaths)
+    // for why these aren't --sysroot or --search-prefix.
+    const system_include_path = b.option(std.Build.LazyPath, "system_include_path", "Target system include path (for cross-compiling)");
+    const system_framework_path = b.option(std.Build.LazyPath, "system_framework_path", "Target system framework path (for cross-compiling to macOS)");
+    const library_path = b.option(std.Build.LazyPath, "library_path", "Target system library path (for cross-compiling)");
     const raylib_dep = b.dependency("raylib", .{
         .target = target,
         .optimize = optimize,
@@ -67,6 +68,7 @@ pub fn build(b: *std.Build) !void {
         .config = options.config,
         .raygui = true,
         .system_include_path = system_include_path,
+        .system_framework_path = system_framework_path,
         .library_path = library_path,
     });
 
