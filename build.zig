@@ -597,16 +597,17 @@ pub fn build(b: *std.Build) !void {
                 .optimize = optimize,
             });
 
+            const html_filename = try std.fmt.allocPrint(b.allocator, "{s}.html", .{wasm.name});
             const emcc_step = emsdk.emccStep(b, raylib_artifact, wasm, .{
+                .out_file_name = html_filename,
                 .optimize = optimize,
                 .flags = emcc_flags,
                 .settings = emcc_settings,
                 .shell_file_path = emsdk.shell(raylib_dep),
                 .install_dir = install_dir,
-                .embed_paths = &.{.{ .src_path = "resources/" }},
+                .embed_paths = &.{.{ .src_path = b.path("resources/") }},
             });
 
-            const html_filename = try std.fmt.allocPrint(b.allocator, "{s}.html", .{wasm.name});
             const emrun_step = emsdk.emrunStep(
                 b,
                 b.getInstallPath(install_dir, html_filename),
